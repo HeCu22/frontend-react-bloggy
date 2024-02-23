@@ -5,13 +5,18 @@ import {Link, useNavigate} from 'react-router-dom';
 import Input from '../../components/input/Input.jsx';
 import Button from '../../components/button/Button.jsx';
 import axios from 'axios';
+import {createBloggy} from "../../services/BloggyService.js";
+import formatDateString from "../../helpers/formatDateString.js";
 
 function NewPost() {
     const [formState, setFormState] = useState({
         title: '',
-        subtitle: '',
-        author: '',
+        subTitle: '',
         content: '',
+        // date: new Date().toISOString(),
+       date: formatDateString(new Date()),
+        author: '',
+
     });
     const [submitSuccessId, setSubmitSuccessId] = useState(null);
     const [error, toggleError] = useState(false);
@@ -29,28 +34,18 @@ function NewPost() {
 
         console.log({
             ...formState,
-            shares: 0,
-            comments: 0,
-            created: new Date().toISOString(),
-            readTime: calculateReadTime(formState.content),
+            created: new Date().toISOString()
         });
 
-        try {
-            const response = await axios.post('http://localhost:3000/posts', {
-                ...formState,
-                shares: 0,
-                comments: 0,
-                created: new Date().toISOString(),
-                readTime: calculateReadTime(formState.content),
-            });
-            console.log(response.data);
 
+        createBloggy(formState).then((response) => {
+            console.log(response.data);
             console.log('De blog is succesvol toegevoegd! 🌈');
             setSubmitSuccessId(response.data.id);
-        } catch (e) {
-            console.error(e);
+        }).catch(error => {
+            console.error(error);
             toggleError(true);
-        }
+        })
     }
 
     return (
@@ -68,10 +63,10 @@ function NewPost() {
                         handleChange={handleChange}/>
                     <Input
                         type="text"
-                        name="subtitle"
+                        name="subTitle"
                         labelText="Subtitel"
                         required={true}
-                        formStateValue={formState.subtitle}
+                        formStateValue={formState.subTitle}
                         handleChange={handleChange}/>
                     <Input
                         type="text"
@@ -79,6 +74,14 @@ function NewPost() {
                         labelText="Naam en achternaam"
                         required={true}
                         formStateValue={formState.author}
+                        handleChange={handleChange}/>
+
+                    <Input
+                        type="text"
+                        name="author"
+                        labelText="Datum"
+                        required={true}
+                        formStateValue={formState.date}
                         handleChange={handleChange}/>
 
                     <label htmlFor="post-content">Blogpost</label>

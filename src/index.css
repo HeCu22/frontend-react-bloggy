@@ -1,19 +1,34 @@
-/*In dit bestand plaats je alle algemene styling die geldt voor de gehele applicatie*/
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-:root {
-  --color-primary: #38E991;
-  --color-secondary: #2C2F39;
-  --color-tertiary: #50535C;
-  --color-secondary-light: #E8E9ED;
-  --color-white: #FFFFFF;
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+
+* {
+  --color-primary: #B68A0F;
+  --color-secondary:  #66644E;
+  --color-tertiary: #A3545Cff;
+  --color-secondary-light: #E6BB62ff;
+  --color-white: #E8DFD4ff;
+  --color-faded: #CAD2E2;
+  --color-light: #c3b39f;
+
+  --black-olive: #393A32ff;
+  --lion: #B59675;
+  --black-olive-2: #3F3F32ff;
+  --black-olive-3: #4A4A3Fff;
+  --coyote: #73614Aff;
+  --black-olive-4: #323326ff;
+  --walnut-brown: #756859ff;
+  --french-gray: #C9D1E1ff;
+  --timberwolf: #DBD6D1ff;
+  --black-olive-5: #2B2B23ff;x
+
+}
+
 
 body {
   font-family: 'PT Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -73,7 +88,7 @@ figcaption {
 
 a,
 a:visited {
-  color: var(--color-primary);
+  color: var(--color-faded);
   text-decoration: none;
   font-weight: 600;
 }

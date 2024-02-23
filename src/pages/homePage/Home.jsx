@@ -1,12 +1,14 @@
 import './Home.css';
 import logo from '../../assets/logo-white.png';
 import billboard from '../../assets/billboard-logo.png';
+import '@fontsource/rock-salt';
 
 function Home() {
     return (<>
         <header className="header outer-content-container">
             <div className="inner-content-container">
-                <img src={logo} alt="Company logo"/>
+                <div className="row">
+                    <img src={logo} alt="Company logo"/>  <h1> Bloggy</h1> </div>
             </div>
         </header>
         <section className="section-home-branding outer-content-container">

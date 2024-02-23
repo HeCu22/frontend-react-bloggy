@@ -24,7 +24,7 @@ function App() {
             </main>
             {/*Van de footer zou je ook een component mogen maken*/}
             <footer className="footer-navigation outer-content-container">
-                Blogventure &copy; 2023 - ontwikkeld voor NOVI Hogeschool
+                Bloggy &copy; 2024 - gebaseerd op ontwikkeling door NOVI Hogeschool
             </footer>
         </>
     )

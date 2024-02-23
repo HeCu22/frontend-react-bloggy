@@ -10,13 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/caveat": "^5.0.16",
+    "@fontsource-variable/merriweather-sans": "^5.0.9",
+    "@fontsource/poppins": "^5.0.8",
+    "@fontsource/rock-salt": "^5.0.18",
     "@phosphor-icons/react": "^2.0.13",
     "axios": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
+    "@svgr/core": "^8.1.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",

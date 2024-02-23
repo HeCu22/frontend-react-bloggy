@@ -1,12 +1,14 @@
 .new-post-section {
-    background-color: var(--color-secondary-light);
+    background-color: var(--color-light);
     text-align: center;
     padding: 32px 0;
+    font-family: Poppins;
     font-weight: 600;
 }
 
 .new-post-form {
     display: flex;
     flex-direction: column;
+    font-family: Poppins;
     padding: 12px;
 }

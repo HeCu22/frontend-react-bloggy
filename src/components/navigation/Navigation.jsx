@@ -1,6 +1,6 @@
 import './Navigation.css';
 import Button from '../button/Button.jsx';
-import logoMedium from '../../assets/logo-medium.png';
+import ReactLogo from '../../assets/logo-bloggy.svg?react';
 import {Link, useNavigate} from 'react-router-dom';
 
 function Navigation() {
@@ -10,7 +10,7 @@ function Navigation() {
         <nav className="main-navigation outer-content-container">
             <div className="inner-nav-container">
                 <Button type="button" variant="invisible" onClick={() => navigate('/')}>
-                    <img src={logoMedium} alt="Logo that links to home page"/>
+                    <ReactLogo/>
                 </Button>
                 <ul className="main-navigation-links">
                     <li><Link to="/">Home</Link></li>

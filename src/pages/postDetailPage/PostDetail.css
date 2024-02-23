@@ -1,5 +1,7 @@
 .post-detail-section {
     min-height: 84vh;
+    background-color: var(--color-light);
+    font-family: Caveat, serif;
 }
 
 .back-link,
@@ -9,18 +11,31 @@
     align-items: center;
     gap: 4px;
     margin: 0;
+    background-color: var(--color-white);
+    font-family: "Caveat Variable", serif;
+}
+
+.back-link {
+    background-color: var(--color-tertiary);
 }
 
 .post-detail-read-time p {
     font-size: 1em;
     color: #50535C;
+    background-color: var(--color-white);
+    font-family: "Merriweather Sans Variable", serif;
 }
 
 .post-detail-section h1,
 .post-detail-section h2 {
     margin-block: 0.3em;
+    padding: 0.3em;
+    font-family: "Rock Salt", sans-serif;
+    background-color: var(--color-faded);
 }
 
-.post-detail-author {
+.post-detail-author, .post-detail {
     margin-bottom: 0;
+    background-color: var(--color-white);
+    font-family: Poppins, sans-serif;
 }

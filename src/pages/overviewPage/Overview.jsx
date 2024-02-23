@@ -4,6 +4,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage.jsx';
 import Button from '../../components/button/Button.jsx';
+import {listBlogItems} from "../../services/BloggyService.js";
 
 function Overview() {
     const [posts, setPosts] = useState([]);
@@ -12,15 +13,17 @@ function Overview() {
     async function fetchPosts() {
         toggleError(false);
 
-        try {
-            const response = await axios.get('http://localhost:3000/posts');
+
+        listBlogItems().then((response) => {
             console.log(response.data);
-            setPosts(response.data);
-        } catch (e) {
-            console.error(e);
+            setPosts((response.data));
+        }).catch(error => {
+            console.error(error);
             toggleError(true);
-        }
+        })
     }
+
+
 
     return (
         <section className="overview-section outer-content-container">
@@ -35,8 +38,8 @@ function Overview() {
                                     key={post.id}
                                     id={post.id}
                                     title={post.title}
-                                    shares={post.shares}
-                                    comments={post.comments}
+                                    subTitle={post.subTitle}
+                                    date={post.date}
                                     author={post.author}
                                 />
                             })}

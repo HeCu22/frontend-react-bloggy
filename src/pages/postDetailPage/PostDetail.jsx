@@ -5,41 +5,50 @@ import './PostDetail.css';
 import {useState} from 'react';
 import axios from 'axios';
 import Button from '../../components/button/Button.jsx';
+import {getBloggy} from "../../services/BloggyService.js";
+import calculateReadTime from "../../helpers/calculateReadTime.js";
 
 function PostDetail() {
     const [post, setPost] = useState([]);
     const [error, toggleError] = useState(false);
+    const [buttonColor, setButtonColor] = useState("primary");
 
     const {id} = useParams();
 
     async function fetchPost() {
         toggleError(false);
 
-        try {
-            const response = await axios.get(`http://localhost:3000/posts/${id}`);
-            console.log(response.data);
-            setPost(response.data);
-        } catch (e) {
-            console.error(e);
-            toggleError(true);
+
+        if (id) {
+            getBloggy(
+                id).then((response) => {
+                console.log(response.data);
+                setPost(response.data);
+                setButtonColor("button-secondary");
+
+            }).catch(error => {
+                console.error(error);
+                toggleError(true);
+            })
         }
     }
 
     return (
         <section className="post-detail-section outer-content-container">
             <div className="inner-content-container">
-                <Button type="button" onClick={fetchPost} variant="primary">Haal de post op</Button>
+                <Button type="button" onClick={fetchPost} variant={buttonColor}>Haal de post op</Button>
                 {Object.keys(post).length > 0 && (<>
                     <h1>{post.title}</h1>
-                    <h2>{post.subtitle}</h2>
-                    <p className="post-detail-author">Geschreven door <em>{post.author}</em> op {formatDateString(post.created)}
+                    <h2>{post.subTitle}</h2>
+                    <p className="post-detail-author">Geschreven door <em>{post.author}</em> op {post.date}
                     </p>
                     <span className="post-detail-read-time">
                     <Clock color="#50535C" size={18}/>
-                    <p> {post.readTime} minuten lezen</p>
+                    <p> {calculateReadTime(post.content)} minuten lezen</p>
                 </span>
-                    <p>{post.content}</p>
-                    <p>{post.comments} reacties - {post.shares} keer gedeeld</p>
+                    <span className="post-detail-read-time">
+                        <p>{post.content}</p></span>
+                    {/*<p>{post.comments} reacties - {post.shares} keer gedeeld</p>*/}
 
                 </>)}
                 {error && <p>Er is iets misgegaan bij het ophalen van de data. Probeer het opnieuw</p>}
