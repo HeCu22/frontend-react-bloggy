@@ -39,8 +39,7 @@ de webpagina.
 ## Functionaliteiten
 
 1. **Blogposts ophalen:**
-2. **Post ophalen:** 
-3. **Nieuwe post toevoegen:** 
+
 4. **Post verwijderen:**
 6. **Post wijzigen:** 
 
