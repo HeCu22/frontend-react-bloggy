@@ -1,9 +1,9 @@
 import {Link, useParams} from 'react-router-dom';
-import formatDateString from '../../helpers/formatDateString.js';
+
 import {CaretLeft, Clock} from "@phosphor-icons/react";
 import './PostDetail.css';
 import {useState} from 'react';
-import axios from 'axios';
+
 import Button from '../../components/button/Button.jsx';
 import {getBloggy} from "../../services/BloggyService.js";
 import calculateReadTime from "../../helpers/calculateReadTime.js";
@@ -20,8 +20,7 @@ function PostDetail() {
 
 
         if (id) {
-            getBloggy(
-                id).then((response) => {
+            getBloggy(id).then((response) => {
                 console.log(response.data);
                 setPost(response.data);
                 setButtonColor("button-secondary");

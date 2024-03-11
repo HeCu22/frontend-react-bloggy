@@ -1,10 +1,9 @@
 import './NewPost.css';
 import {useState} from 'react';
-import calculateReadTime from '../../helpers/calculateReadTime.js';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Input from '../../components/input/Input.jsx';
 import Button from '../../components/button/Button.jsx';
-import axios from 'axios';
+
 import {createBloggy} from "../../services/BloggyService.js";
 import formatDateString from "../../helpers/formatDateString.js";
 

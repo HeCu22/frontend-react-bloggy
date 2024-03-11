@@ -2,13 +2,17 @@
     background-color: var(--color-light);
     text-align: center;
     padding: 32px 0;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-weight: 600;
 }
 
 .new-post-form {
     display: flex;
     flex-direction: column;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     padding: 12px;
+}
+
+.new-post-form input, textarea {
+    font-size: large;
 }
