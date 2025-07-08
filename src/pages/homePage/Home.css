@@ -11,7 +11,7 @@
 .header h1 {
     font-family: "Rock Salt", serif;
     font-size: 100px;
-
+    color: var(--color-faded);
 }
 
 .section-home-branding {
@@ -38,11 +38,10 @@
     flex-shrink: 1;
     width: 400px;
     height: 700px;
-    background-color: var(--color-light);
+    /*background-color: var(--lion);*/
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
 }
-
 
 
 .window2 body {
@@ -50,7 +49,9 @@
 }
 
 .picture {
+    display: flex;
     width: 380px;
+    /*background-color: var(--timberwolf);*/
 }
 
 img {
@@ -65,53 +66,63 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /*flex-basis: 700px;*/
+    /*flex-grow: 0.5;*/
+    /*flex-shrink: 1;*/
+    /*background-color: var(--french-gray);*/
 }
 
 .container-tile {
-    width: 55%;
+    width: 58%;
+    /*margin: 0 25px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+    /*background-color: var(--lion);*/
 
 }
+
 .tile {
-    position: relative;
     display: flex;
-    width: 550px;
     flex-basis: 550px;
     flex-grow: 0.4;
     flex-shrink: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    /*width: 100%;*/
-    /*padding: 0 10px;*/
-    background-color: var(--color-tertiary);
-    transform: scale(0.7,0.7);
+    /*background-color: var(--color-tertiary);*/
+    /*transform: scale(0.7, 0.7);*/
 }
 
 
 .window2 {
-    width: 100%;
+    width: 150%;
     display: flex;
     flex-direction: row;
-    flex-basis: 800px;
-    /*width: 576px;*/
+    flex-basis: 700px;
+    max-width: 576px;
     height: 100%;
     /*height: 845px;*/
     flex-shrink: 1;
     flex-grow: 0;
-    transform: scale(0.9,0.9);
+    transform: scale(0.9, 0.9);
     background-color: var(--walnut-brown);
     color: var(--walnut-brown);
-    /*border: 2px solid;*/
-    /*padding: 10px;*/
-    /*width: 300px;*/
-    /*resize: both;*/
-
     text-align: center;
-    object-fit: cover;
-    object-position: 5px 10%;
+    /*object-fit: cover;*/
+    /*object-position: 5px 10%;*/
+
 }
+
+
+.container-tile span{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: "Caveat Variable", cursive;
+    /*padding: 0 100px;*/
+}
+
 
 
 

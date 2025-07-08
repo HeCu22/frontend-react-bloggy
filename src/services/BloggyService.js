@@ -5,7 +5,8 @@ const REST_API_BASE_URL = "http://localhost:8080/api/bloggy";
 // const REST_API_ADVICE_URL = "https://api.adviceslip.com/advice/69/img/m";
 
 export const getAdvice = (string) => axios.get(string);
-export const listBlogItems = () => axios.get(REST_API_BASE_URL);
+
+export const listBlogItems = (word) => axios.get(REST_API_BASE_URL+ '?word=' + word);
 
 export const createBloggy = (bloggy) => axios.post(REST_API_BASE_URL, bloggy);
 

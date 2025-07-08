@@ -6,6 +6,7 @@
     border-radius: 4px;
 }
 
+
 .button-primary {
     background-color: var(--color-tertiary);
     color: var(--color-white);
@@ -15,7 +16,7 @@
 
 .button-secondary {
     background-color: var(--color-faded);
-    color: var(--color-light);
+    color: var(--color-primary);
     display: inline;
 }
 
@@ -23,3 +24,4 @@
     background-color: transparent;
     max-width: 200px;
 }
+

@@ -1,6 +1,7 @@
 .overview-section {
     text-align: left;
     background-color: var(--color-light);
+    min-height: 32em;
 }
 
 .overview-section h1 {

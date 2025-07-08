@@ -16,3 +16,7 @@
 .new-post-form input, textarea {
     font-size: large;
 }
+
+.new-post-form h1 {
+    margin-block: 5px 0;
+}

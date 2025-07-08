@@ -1,10 +1,10 @@
 import './NewPost.css';
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import Input from '../../components/input/Input.jsx';
 import Button from '../../components/button/Button.jsx';
 
-import {createBloggy} from "../../services/BloggyService.js";
+import {createBloggy, getBloggy, updateBloggy} from "../../services/BloggyService.js";
 import formatDateString from "../../helpers/formatDateString.js";
 
 function NewPost() {
@@ -19,6 +19,19 @@ function NewPost() {
     });
     const [submitSuccessId, setSubmitSuccessId] = useState(null);
     const [error, toggleError] = useState(false);
+
+    const {id} = useParams();
+
+    useEffect(() => {
+
+        if (id) {
+            getBloggy(id).then((response) => {
+                setFormState(response.data);
+            }).catch(error => {
+                console.error(error);
+            })
+        }
+    }, [id])
 
     function handleChange(e) {
         setFormState({
@@ -36,15 +49,25 @@ function NewPost() {
             created: new Date().toISOString()
         });
 
-
-        createBloggy(formState).then((response) => {
-            console.log(response.data);
-            console.log('De blog is succesvol toegevoegd! 🌈');
-            setSubmitSuccessId(response.data.id);
-        }).catch(error => {
-            console.error(error);
-            toggleError(true);
-        })
+        if (id) {
+            updateBloggy(id, formState).then((response) => {
+                console.log(response.data);
+                console.log('De blog is succesvol gewijzigd! 🌈');
+                setSubmitSuccessId(response.data.id);
+            }).catch(error => {
+                console.error(error);
+                toggleError(true);
+            })
+        } else {
+            createBloggy(formState).then((response) => {
+                console.log(response.data);
+                console.log('De blog is succesvol toegevoegd! 🌈');
+                setSubmitSuccessId(response.data.id);
+            }).catch(error => {
+                console.error(error);
+                toggleError(true);
+            })
+        }
     }
 
     return (
@@ -52,7 +75,7 @@ function NewPost() {
             <div className="inner-content-container__text-restriction">
                 {!submitSuccessId ?
                 <form className="new-post-form" onSubmit={handleSubmit}>
-                    <h1>Post toevoegen</h1>
+                    { id ?  <h1>Post wijzigen</h1> : <h1>Post toevoegen</h1>}
                     <Input
                         type="text"
                         name="title"
@@ -88,14 +111,14 @@ function NewPost() {
                         name="content"
                         id="post-content"
                         cols="30"
-                        rows="10"
+                        rows="20"
                         required
                         minLength={300}
                         maxLength={2000}
                         value={formState.content}
                         onChange={handleChange}></textarea>
                     <Button type="submit" variant="primary">
-                        Toevoegen
+                        { id ? <> Wijzigen </> :  <> Toevoegen </> }
                     </Button>
                     {error && <p>Er is iets misgegaan bij het versturen van het formulier. Probeer het opnieuw</p>}
                 </form>

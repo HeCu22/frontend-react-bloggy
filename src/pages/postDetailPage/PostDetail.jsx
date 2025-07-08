@@ -1,6 +1,6 @@
 import {Link, useParams} from 'react-router-dom';
 
-import {CaretLeft, Clock} from "@phosphor-icons/react";
+import {CaretCircleRight, CaretLeft, Clock, NotePencil, Swap} from "@phosphor-icons/react";
 import './PostDetail.css';
 import {useState} from 'react';
 
@@ -12,18 +12,21 @@ function PostDetail() {
     const [post, setPost] = useState([]);
     const [error, toggleError] = useState(false);
     const [buttonColor, setButtonColor] = useState("primary");
+    const [buttonTekst, setButtonTekst] = useState("haal de post op");
 
     const {id} = useParams();
 
     async function fetchPost() {
+        if (id && buttonTekst === "wijzig de post") {
+
+        }
         toggleError(false);
-
-
         if (id) {
             getBloggy(id).then((response) => {
                 console.log(response.data);
                 setPost(response.data);
                 setButtonColor("button-secondary");
+                setButtonTekst("wijzig de post");
 
             }).catch(error => {
                 console.error(error);
@@ -35,7 +38,10 @@ function PostDetail() {
     return (
         <section className="post-detail-section outer-content-container">
             <div className="inner-content-container">
-                <Button type="button" onClick={fetchPost} variant={buttonColor}>Haal de post op</Button>
+                <Button type="button" onClick={fetchPost} variant={buttonColor}>
+                    {buttonTekst}
+                    {buttonTekst === "wijzig de post" && <Link to={`/post/${id}`}> <NotePencil className="change-link" size={22}/></Link>}
+                </Button>
                 {Object.keys(post).length > 0 && (<>
                     <h1>{post.title}</h1>
                     <h2>{post.subTitle}</h2>
@@ -55,6 +61,7 @@ function PostDetail() {
                     <CaretLeft color="#38E991" size={22}/>
                     <p>Terug naar de overzichtspagina</p>
                 </Link>
+
             </div>
         </section>
     );

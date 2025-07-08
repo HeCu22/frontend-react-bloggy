@@ -1,7 +1,8 @@
 .post-detail-section {
-    min-height: 84vh;
+    min-height: 70vh;
     background-color: var(--color-light);
     font-family: Caveat, serif;
+    font-size: larger;
 }
 
 .back-link,
@@ -16,6 +17,11 @@
 }
 
 .back-link {
+    background-color: var(--color-tertiary);
+}
+
+.change-link {
+    /*color: var(--color-tertiary);*/
     background-color: var(--color-tertiary);
 }
 

@@ -76,7 +76,9 @@ function Home() {
 
                         </figure>
                         <div className="container-tile">
+
                             <div className="tile">
+                                <span>* In talloze motto&#39;s, mantra&#39;s en credo&#39;s, die dagelijks opdoemen in kranten, websites, community-blogs etc.</span>
                                 <iframe className="window2"
                                         src={dayString}
                                     // srcDoc={string}
@@ -85,6 +87,7 @@ function Home() {
                                 ></iframe>
 
                             </div>
+
                         </div>
 
                     </div>
